@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leyou.item.mapper.Cid3Mapper">
+  <resultMap id="BaseResultMap" type="com.leyou.item.pojo.Cid3">
+    <!--@mbg.generated-->
+    <!--@Table cid3-->
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.leyou.item.pojo.Cid3">
+    <!--@mbg.generated-->
+    insert into cid3 (parent_id)
+    values (#{parentId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.leyou.item.pojo.Cid3">
+    <!--@mbg.generated-->
+    insert into cid3
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parentId != null">
+        parent_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

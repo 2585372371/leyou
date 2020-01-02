@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leyou.item.mapper.UserCouponMapper">
+  <resultMap id="BaseResultMap" type="com.leyou.item.pojo.UserCoupon">
+    <!--@mbg.generated-->
+    <!--@Table tb_user_coupon-->
+    <id column="coupon_code" jdbcType="BIGINT" property="couponCode" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="status" jdbcType="OTHER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    coupon_code, coupon_id, user_id, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_coupon
+    where coupon_code = #{couponCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_user_coupon
+    where coupon_code = #{couponCode,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="coupon_code" keyProperty="couponCode" parameterType="com.leyou.item.pojo.UserCoupon" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_user_coupon (coupon_id, user_id, `status`
+      )
+    values (#{couponId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{status,jdbcType=OTHER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="coupon_code" keyProperty="couponCode" parameterType="com.leyou.item.pojo.UserCoupon" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_user_coupon
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.leyou.item.pojo.UserCoupon">
+    <!--@mbg.generated-->
+    update tb_user_coupon
+    <set>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=OTHER},
+      </if>
+    </set>
+    where coupon_code = #{couponCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.leyou.item.pojo.UserCoupon">
+    <!--@mbg.generated-->
+    update tb_user_coupon
+    set coupon_id = #{couponId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=OTHER}
+    where coupon_code = #{couponCode,jdbcType=BIGINT}
+  </update>
+</mapper>

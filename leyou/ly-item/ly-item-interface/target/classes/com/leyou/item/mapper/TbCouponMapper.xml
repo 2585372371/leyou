@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leyou.item.mapper.TbCouponMapper">
+  <resultMap id="BaseResultMap" type="com.leyou.item.pojo.TbCoupon">
+    <!--@mbg.generated-->
+    <!--@Table tb_coupon-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="OTHER" property="type" />
+    <result column="condition" jdbcType="BIGINT" property="condition" />
+    <result column="reduction" jdbcType="BIGINT" property="reduction" />
+    <result column="discount" jdbcType="INTEGER" property="discount" />
+    <result column="targets" jdbcType="VARCHAR" property="targets" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, `type`, `condition`, reduction, discount, targets, stock, start_time, 
+    end_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_coupon
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_coupon
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.leyou.item.pojo.TbCoupon" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_coupon (`name`, `type`, `condition`, 
+      reduction, discount, targets, 
+      stock, start_time, end_time
+      )
+    values (#{name,jdbcType=VARCHAR}, #{type,jdbcType=OTHER}, #{condition,jdbcType=BIGINT}, 
+      #{reduction,jdbcType=BIGINT}, #{discount,jdbcType=INTEGER}, #{targets,jdbcType=VARCHAR}, 
+      #{stock,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.leyou.item.pojo.TbCoupon" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_coupon
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="condition != null">
+        `condition`,
+      </if>
+      <if test="reduction != null">
+        reduction,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="targets != null">
+        targets,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=OTHER},
+      </if>
+      <if test="condition != null">
+        #{condition,jdbcType=BIGINT},
+      </if>
+      <if test="reduction != null">
+        #{reduction,jdbcType=BIGINT},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=INTEGER},
+      </if>
+      <if test="targets != null">
+        #{targets,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.leyou.item.pojo.TbCoupon">
+    <!--@mbg.generated-->
+    update tb_coupon
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=OTHER},
+      </if>
+      <if test="condition != null">
+        `condition` = #{condition,jdbcType=BIGINT},
+      </if>
+      <if test="reduction != null">
+        reduction = #{reduction,jdbcType=BIGINT},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=INTEGER},
+      </if>
+      <if test="targets != null">
+        targets = #{targets,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.leyou.item.pojo.TbCoupon">
+    <!--@mbg.generated-->
+    update tb_coupon
+    set `name` = #{name,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=OTHER},
+      `condition` = #{condition,jdbcType=BIGINT},
+      reduction = #{reduction,jdbcType=BIGINT},
+      discount = #{discount,jdbcType=INTEGER},
+      targets = #{targets,jdbcType=VARCHAR},
+      stock = #{stock,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
